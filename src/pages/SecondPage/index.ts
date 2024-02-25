@@ -1,0 +1,1 @@
+export {SecondPageAsync as SecondPage} from "./ui/SecondPage.async.tsx"
