@@ -1,9 +1,9 @@
 import {PageTitle} from "../../../shared/PageTitle";
 import {HeaderTodo} from "../../../widgets/HeaderTodo";
-import {Modal} from "../../../shared/Modal/Modal.tsx";
 import {useState} from "react";
 import {Button} from "../../../shared/Button";
-import {AddTodoForm} from "../../../widgets/AddTodoForm";
+import {TodoList} from "../../../widgets/TodoList";
+import {TodoModal} from "../../../shared/TodoModal/TodoModal.tsx";
 
 const MainPage = () => {
 
@@ -12,11 +12,10 @@ const MainPage = () => {
     return (
         <div>
             <PageTitle>Todo App</PageTitle>
+            <Button onClick={() => {setIsOpen(true)}} as={"button"}>Add Todo</Button>
             <HeaderTodo />
-            <Button onClick={() => {setIsOpen(true)}} as={"button"}>Open modal</Button>
-            <Modal isOpen={isOpen} onClose={() => {setIsOpen(false)}}>
-                <AddTodoForm/>
-            </Modal>
+            <TodoList />
+            <TodoModal type={"Add"} isOpen={isOpen} onClose={() => {setIsOpen(false)}} />
         </div>
     );
 };
